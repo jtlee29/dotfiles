@@ -8,6 +8,15 @@ return {
   },
 
   config = function()
-    vim.keymap.set('n', '<C-b>', ':Neotree filesystem toggle left<CR>', {})
+    vim.keymap.set('n', '<C-b>', ':Neotree filesystem reveal left<CR>', {})
+
+    local configs = require("neo-tree")
+    configs.setup({
+      filesystem = {
+        filtered_items = {
+          visible = true
+        }
+      }
+    })
   end
 }
