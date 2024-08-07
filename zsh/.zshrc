@@ -12,3 +12,5 @@ source ~/.npm-token
 source ~/.zshrc-tetra
 
 eval "$(starship init zsh)"
+
+pfetch
