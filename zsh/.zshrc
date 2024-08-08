@@ -6,6 +6,7 @@
 # - zoxide
 # - fzf
 # - nvm
+# - yazi
 #
 
 export VISUAL="nvim"
@@ -23,6 +24,15 @@ source ~/.zshrc-tetra
 
 source <(fzf --zsh)     # verify this works for arch
 eval "$(zoxide init --cmd cd zsh)"
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 eval "$(starship init zsh)"
 pfetch
