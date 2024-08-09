@@ -8,3 +8,4 @@ List of dependencies
 - yazi
 - lazygit
 - nvm
+- hyprland
