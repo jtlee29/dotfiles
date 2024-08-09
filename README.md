@@ -1,1 +1,3 @@
 # dotfiles
+
+List of dependencies
