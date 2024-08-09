@@ -7,7 +7,7 @@
 # - fzf
 # - nvm
 # - yazi
-#
+# - lazygit
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
@@ -17,6 +17,9 @@ export EDITOR="$VISUAL"
 alias ls='eza'
 alias ll='eza -lah'
 alias tree='eza --tree'
+
+# Requires lazygit package
+alias lg='lazygit'
 
 source /usr/share/nvm/init-nvm.sh
 source ~/.npm-token
