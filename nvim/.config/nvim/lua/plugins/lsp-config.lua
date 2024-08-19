@@ -24,6 +24,7 @@ return {
 
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.rust_analyzer.setup({ capabilities = capabilities, filetypes = { "rust" } })
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gh", vim.lsp.buf.definition, {})
