@@ -8,10 +8,15 @@
 # - nvm
 # - yazi
 # - lazygit
+# - tmuxifier
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
+# Requires tmuxifier
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
 
 # Requires eza package
 alias ls='eza'
