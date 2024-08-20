@@ -9,3 +9,7 @@ List of dependencies
 - lazygit
 - nvm
 - hyprland
+- tmux
+- tmuxifier
+- zsh-autosuggestions
+- zsh-syntax-highlighting

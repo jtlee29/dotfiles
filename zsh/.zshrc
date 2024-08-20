@@ -32,6 +32,16 @@ source ~/.npm-token
 source ~/.zshrc-tetra
 
 source <(fzf --zsh)     # verify this works for arch
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+setopt share_history
+setopt hist_expire_dups_first
+
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
 eval "$(zoxide init --cmd cd zsh)"
 
 function yy() {
