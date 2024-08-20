@@ -17,6 +17,7 @@ export EDITOR="$VISUAL"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
+alias tx='tmuxifier'
 
 # Requires eza package
 alias ls='eza'
