@@ -35,7 +35,7 @@ require 'binds'
 require 'auto-cmds'
 
 -- [[ NeoTree keymaps ]]
-vim.keymap.set('n', '<C-b>', ':Neotree reveal<CR>', {})
+-- vim.keymap.set('n', '<C-b>', ':Neotree reveal<CR>', {})
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -71,7 +71,6 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
