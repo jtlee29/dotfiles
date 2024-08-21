@@ -42,6 +42,8 @@ setopt hist_expire_dups_first
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+alias "fnvim"="fzf --height 25% --layout reverse --border | xargs nvim"
+
 eval "$(zoxide init --cmd cd zsh)"
 
 function yy() {
