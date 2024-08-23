@@ -6,6 +6,8 @@
 -- For more options see `:help option-list`
 --
 
+vim.opt.tabstop = 4
+
 -- Regular line numbers
 -- vim.opt-number = true
 -- Enable relative line numbers
