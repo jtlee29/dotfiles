@@ -155,9 +155,7 @@ return {
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        rust_analyzer = {
-          filetypes = { 'rust' },
-        },
+        rust_analyzer = {},
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
@@ -196,6 +194,7 @@ return {
         'stylua', -- Used to format Lua code
         'eslint',
         'prettier',
+        'rust_analyzer',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
