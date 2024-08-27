@@ -17,6 +17,14 @@ return {
   },
 
   opts = {
+    filesystem = {
+      window = {
+        mappings = {
+          ['\\'] = 'close_window',
+          ['<C-b>'] = 'close_window',
+        },
+      },
+    },
     event_handlers = {
       {
         event = 'file_open_requested',

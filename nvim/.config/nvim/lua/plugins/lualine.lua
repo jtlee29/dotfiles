@@ -8,6 +8,7 @@ return {
         theme = 'auto',
         component_separators = '',
         section_separators = { left = '', right = '' },
+        disabled_filetypes = { 'neo-tree' },
       },
       sections = {
         lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
