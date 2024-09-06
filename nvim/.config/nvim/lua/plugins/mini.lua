@@ -18,6 +18,10 @@ return {
     require('mini.surround').setup()
 
     -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
+    --  Check out: https://github.com/echasnovski/mini.nvi
+
+    require('mini.indentscope').setup {
+      symbol = '',
+    }
   end,
 }
