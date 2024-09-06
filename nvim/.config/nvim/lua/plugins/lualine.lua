@@ -6,11 +6,12 @@ return {
     options = {
       theme = 'auto',
       component_separators = '',
-      section_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
       disabled_filetypes = { 'neo-tree' },
     },
     sections = {
-      lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+      -- lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+      lualine_a = { { 'mode', right_padding = 2 } },
       lualine_b = { 'branch' },
       lualine_c = {
         '%=',
@@ -19,7 +20,8 @@ return {
       lualine_x = { 'diagnostics', 'searchcount' },
       lualine_y = { 'filetype', 'encoding' },
       lualine_z = {
-        { 'location', separator = { right = '' }, left_padding = 2 },
+        -- { 'location', separator = { right = '' }, left_padding = 2 },
+        { 'location', left_padding = 2 },
       },
     },
     inactive_sections = {
