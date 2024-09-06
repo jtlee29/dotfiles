@@ -12,6 +12,7 @@
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
+export GIT_EDITOR="nvim"
 
 # Requires tmuxifier
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
