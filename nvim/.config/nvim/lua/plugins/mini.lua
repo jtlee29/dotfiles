@@ -1,3 +1,9 @@
+local header_art = [[
+ ╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
+ │││├┤ │ │╰┐┌╯││││
+ ╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
+]]
+
 -- Collection of various small independent plugins/modules
 return {
   'echasnovski/mini.nvim',
@@ -22,6 +28,13 @@ return {
 
     require('mini.indentscope').setup {
       symbol = '',
+    }
+
+    require('mini.comment').setup()
+
+    require('mini.starter').setup {
+      header = header_art,
+      footer = '',
     }
   end,
 }
