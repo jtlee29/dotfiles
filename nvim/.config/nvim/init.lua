@@ -81,5 +81,5 @@ require('lazy').setup {
 vim.o.termguicolors = true
 
 -- [[ Set your Colorscheme ]]
-vim.cmd 'colorscheme everforest'
--- vim.cmd 'colorscheme catppuccin-mocha'
+-- vim.cmd 'colorscheme everforest'
+vim.cmd 'colorscheme catppuccin'
