@@ -83,3 +83,4 @@ vim.o.termguicolors = true
 -- [[ Set your Colorscheme ]]
 -- vim.cmd 'colorscheme everforest'
 vim.cmd 'colorscheme catppuccin'
+-- vim.cmd 'colorscheme rose-pine-dawn'

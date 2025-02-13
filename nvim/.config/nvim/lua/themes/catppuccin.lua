@@ -99,7 +99,9 @@ return {
         treesitter_context = true,
         vimwiki = true,
         which_key = true,
+        telescope = { enabled = true, style = 'nvchad' },
       },
+
       highlight_overrides = {
         all = function(colors)
           return {
@@ -109,6 +111,7 @@ return {
             GitSignsChange = { fg = colors.peach },
             LineNr = { fg = colors.overlay0 },
             LspInfoBorder = { link = 'FloatBorder' },
+
             NeoTreeDirectoryIcon = { fg = colors.subtext1 },
             NeoTreeDirectoryName = { fg = colors.subtext1 },
             NeoTreeFloatBorder = { link = 'TelescopeResultsBorder' },
@@ -128,14 +131,13 @@ return {
             NeoTreeTabSeparatorActive = { fg = colors.mantle, bg = colors.mantle },
             NeoTreeTabSeparatorInactive = { fg = colors.crust, bg = colors.crust },
             NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
+
             NormalFloat = { bg = colors.base },
             Pmenu = { bg = colors.mantle, fg = '' },
             PmenuSel = { bg = colors.surface0, fg = '' },
-            TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
-            TelescopePreviewNormal = { bg = colors.crust },
+
             TelescopePreviewTitle = { fg = colors.crust, bg = colors.crust },
             TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
-            TelescopePromptCounter = { fg = colors.mauve, style = { 'bold' } },
             TelescopePromptNormal = { bg = colors.surface0 },
             TelescopePromptPrefix = { bg = colors.surface0 },
             TelescopePromptTitle = { fg = colors.surface0, bg = colors.surface0 },
@@ -143,6 +145,7 @@ return {
             TelescopeResultsNormal = { bg = colors.mantle },
             TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
             TelescopeSelection = { bg = colors.surface0 },
+
             VertSplit = { bg = colors.base, fg = colors.surface0 },
             WhichKeyFloat = { bg = colors.mantle },
             YankHighlight = { bg = colors.surface2 },

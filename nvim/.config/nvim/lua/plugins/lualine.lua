@@ -25,11 +25,11 @@ return {
       },
 
       lualine_x = {
-        { 'diff', colored = true },
         'diagnostics',
         'searchcount',
       },
       lualine_y = {
+        { 'diff', colored = true },
         { 'filetype', icon_only = true },
         'encoding',
       },

@@ -34,20 +34,75 @@ return {
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+
+    -- Icons for auto complete
+    'onsails/lspkind.nvim',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+    local lspkind = require 'lspkind'
     luasnip.config.setup {}
 
+    -- window.documentation = cmp.config.window.bordered()
+    --
     cmp.setup {
+      -- documentation = {
+      --   border = {
+      --     { '󰙎', 'DiagnosticHint' },
+      --     { '─', 'Comment' },
+      --     { '╮', 'Comment' },
+      --     { '│', 'Comment' },
+      --     { '╯', 'Comment' },
+      --     { '─', 'Comment' },
+      --     { '╰', 'Comment' },
+      --     { '│', 'Comment' },
+      --   },
+      --   scrollbar = false,
+      --   winblend = 0,
+      -- },
+
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
-      completion = { completeopt = 'menu,menuone,noinsert' },
+
+      window = {
+        completion = {
+          -- border = {
+          --   '󱐋',
+          --   '─',
+          --   '╮',
+          --   '│',
+          --   '╯',
+          --   '─',
+          --   '╰',
+          --   '│',
+          -- },
+          scrollbar = true,
+          winblend = 0,
+        },
+        documentation = {
+          -- border = {
+          --   '󰙎',
+          --   '─',
+          --   '╮',
+          --   '│',
+          --   '╯',
+          --   '─',
+          --   '╰',
+          --   '│',
+          -- },
+          scrollbar = false,
+          winblend = 0,
+        },
+      },
+
+      completion = {
+        completeopt = 'menu,menuone,noinsert',
+      },
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
@@ -70,7 +125,7 @@ return {
 
         -- If you prefer more traditional completion keymaps,
         -- you can uncomment the following lines
-        --['<CR>'] = cmp.mapping.confirm { select = true },
+        ['<CR>'] = cmp.mapping.confirm { select = true },
         --['<Tab>'] = cmp.mapping.select_next_item(),
         --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
