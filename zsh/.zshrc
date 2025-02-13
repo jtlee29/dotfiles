@@ -20,6 +20,12 @@ eval "$(tmuxifier init -)"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
 alias tx='tmuxifier'
 
+# Requires smart tmux session manager
+# ~/.tmux/plugins
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+# ~/.config/tmux/plugins
+export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+
 # Requires eza package
 alias ls='eza'
 alias ll='eza -lah'
