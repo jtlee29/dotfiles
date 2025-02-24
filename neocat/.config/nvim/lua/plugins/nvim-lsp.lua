@@ -2,8 +2,6 @@
 --  By default, Neovim supports a subset of the LSP specification.
 --  With blink.cmp, Neovim has _more_ capabilities which are communicated to the LSP servers.
 --  Explanation from TJ: https://youtu.be/m8C0Cq9Uv9o?t=1275
---
--- This can vary by config, but in general for nvim-lspconfig:
 
 return {
   "neovim/nvim-lspconfig",
@@ -13,7 +11,9 @@ return {
     { "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "saghen/blink.cmp",
+
+    "saghen/blink.cmp", -- completion engine
+    { "j-hui/fidget.nvim", opts = {} }, -- notifications for lsp info
   },
 
   opts = {
@@ -36,6 +36,37 @@ return {
       config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
       lspconfig[server].setup(config)
     end
+    --[[ ---------- Auto CMDs ---------- ]]
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("neocat-lsp-attach", { clear = true }),
+      callback = function(event)
+        -- map() creates a vim keymap
+        local snacks = require("snacks")
+        local map = function(keys, func, desc)
+          vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+        end
+
+        map("<leader>ss", snacks.picker.lsp_symbols, "[s]earch document [s]ymbols")
+        map("<leader>sS", snacks.picker.lsp_workspace_symbols, "[s]earch workspace [S]ymbols")
+        map("<leader>sd", snacks.picker.diagnostics, "[s]earch [d]iagnostics")
+
+        map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+
+        map("gd", snacks.picker.lsp_definitions, "[g]oto [d]efinition")
+        map("gD", snacks.picker.lsp_declarations, "[g]oto [D]eclaration")
+        map("gr", snacks.picker.lsp_references, "[g]oto [r]eferences")
+        map("gi", snacks.picker.lsp_implementations, "[g]oto [i]mplementation")
+
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+          map(
+            "<leader>th",
+            function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })) end,
+            "[t]oggle inlay [h]ints"
+          )
+        end
+      end,
+    })
 
     --[[ ---------- Mason ---------- ]]
     require("mason").setup()

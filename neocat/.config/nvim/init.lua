@@ -36,11 +36,9 @@ require("lazy").setup({
     { import = "plugins" },
     { import = "themes" },
   },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "rose-pine" } },
+
   -- automatically check for plugin updates
   checker = { enabled = true, notify = false },
 })
 
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("catppuccin")
