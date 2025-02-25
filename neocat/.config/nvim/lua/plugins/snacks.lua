@@ -106,9 +106,10 @@ return {
     --[[ ---------- Search ---------- ]]
     {
       "<leader><space>",
-      function() Snacks.picker.buffers({ layout = "ivy", focus = "list" }) end,
+      function() Snacks.picker.buffers({ layout = "ivy" }) end,
       desc = "search open buffers",
     },
+
     { "<leader>sf", function() Snacks.picker.files() end, desc = "[s]earch [f]iles" },
     { "<leader>s.", function() Snacks.picker.recent() end, desc = "[s]earch recent files (. for repeat)" },
     { "<leader>sg", function() Snacks.picker.grep() end, desc = "[s]earch with [g]rep" },
