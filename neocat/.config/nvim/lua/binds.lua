@@ -30,3 +30,9 @@ vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", { desc = "Move focus to the left w
 vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", { desc = "Move focus to the upper window" })
+
+-- Great keymap. Doesn't overrwite register when pasting
+vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- Restart LSP
+vim.keymap.set("n", "<leader>ls", "<cmd>LspRestart<CR>", { desc = "Restart [l]anguage [s]erver" })
