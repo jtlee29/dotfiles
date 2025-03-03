@@ -69,6 +69,9 @@ return {
         cycle = false,
         reverse = true,
       },
+      matcher = {
+        frecency = true,
+      },
       win = {
         input = {
           keys = {
