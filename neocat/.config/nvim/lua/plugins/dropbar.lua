@@ -3,6 +3,7 @@ return {
   depedencies = {
     "nvim-tree/nvim-web-devicons",
   },
+  version = "^12",
   ---@type dropbar_configs_t
   opts = {
     icons = {
