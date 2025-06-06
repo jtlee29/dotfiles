@@ -60,6 +60,16 @@ return {
       },
     },
 
+    input = {
+      enabled = true,
+      win = {
+        border = "single",
+        relative = "cursor",
+        row = -3,
+        col = 0,
+      },
+    },
+
     -- animate = { duration = 20, easing = "linear", fps = 60 }, -- not working??
 
     picker = {
