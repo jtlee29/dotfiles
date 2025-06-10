@@ -17,11 +17,28 @@ return {
         { "mode", right_padding = 2 },
       },
       lualine_b = {
-        "branch",
+        {
+          "branch",
+          fmt = function(str)
+            -- Match UNITY-XXX or XXX- patterns and return up to the numbers
+            local unity_match = str:match("^UNITY%-(%d+)")
+            if unity_match then
+              return "UNITY-" .. unity_match
+            end
+
+            local number_match = str:match("^(%d+)%-")
+            if number_match then
+              return number_match
+            end
+
+            -- Return original string if no pattern matches
+            return str
+          end,
+        },
       },
       lualine_c = {
         "%=",
-        { "filename", path = 1 },
+        { "filename", path = 4, shorting_target = 40 },
       },
 
       lualine_x = {
