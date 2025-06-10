@@ -1,3 +1,2 @@
-require("config.options")
+require("core.options")
 require("core.lazy")
-require("core.colorschemes")
