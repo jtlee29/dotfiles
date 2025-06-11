@@ -1,3 +1,12 @@
+local servers = {
+    lua_ls = {},
+    vtsls = {},
+}
+
+for server, _ in pairs(servers) do
+    vim.lsp.enable(server)
+end
+
 vim.diagnostic.config({
     -- virtual_lines = true,
     virtual_text = true,
