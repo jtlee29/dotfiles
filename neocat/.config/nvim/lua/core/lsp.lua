@@ -1,3 +1,6 @@
+-- [[
+-- Run `:help lsp-quickstart` for the neovim lsp docs
+-- ]]
 local servers = {
     lua_ls = {},
     vtsls = {},
