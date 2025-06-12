@@ -17,19 +17,20 @@ local headers = {
 |  ,'.|  | ,---.  ,---. '  .--./ ,--,--.,-'  '-.
 |  |' '  || .-. :| .-. ||  |    ' ,-.  |'-.  .-'
 |  | `   |\   --.' '-' ''  '--'\\ '-'  |  |  |  
-`--'  `--' `----' `---'  `-----' `--`--'  `--'  ]],
+`--'  `--' `----' `---'  `-----' `--`--'  `--' 2]],
 }
 
 return {
     "folke/snacks.nvim",
-    ---@module "snacks"
 
     priority = 1000,
     lazy = false,
 
+    ---@module "snacks"
     ---@type snacks.Config
     opts = {
         dashboard = {
+            enabled = true,
             preset = {
                 header = headers.soft,
             },
@@ -40,16 +41,19 @@ return {
             },
         },
 
-        image = {},
+        image = { enabled = true },
+
+        lazygit = { enabled = true },
 
         indent = {
+            enabled = true,
             indent = {
-                enabled = true,
                 only_current = true,
             },
         },
 
         picker = {
+            enabled = true,
             matcher = { frecency = true },
             win = {
                 input = {
@@ -99,5 +103,8 @@ return {
             function() Snacks.picker.highlights({ pattern = "hl_group:^Snacks" }) end,
             desc = "snacks highlights",
         },
+
+        --[[ ---------- LazyGit ---------- ]]
+        { "<leader>lg", function() Snacks.lazygit.open() end, desc = "[l]azy[g]it" },
     },
 }
