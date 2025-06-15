@@ -10,7 +10,6 @@ return {
     keys = {
         { "\\", ":Oil<CR>", desc = "Oil reveal" },
     },
-    lazy = false,
     config = function()
         -- Declare a global function to retrieve the current directory
         function _G.get_oil_winbar()
@@ -31,7 +30,6 @@ return {
             skip_confirm_for_simple_edits = true,
             keymaps = {
                 ["q"] = { "actions.close", mode = "n" },
-                ["<BS>"] = { "actions.parent", mode = "n" },
             },
             watch_for_changes = true,
             win_options = {
