@@ -81,6 +81,7 @@ return {
                 which_key = true,
                 fidget = true,
                 blink_cmp = {
+                    enabled = true,
                     style = "bordered",
                 },
                 snacks = {
