@@ -29,3 +29,5 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- Restart LSP
 vim.keymap.set("n", "<leader>ls", "<cmd>LspRestart<CR>", { desc = "Restart [l]anguage [s]erver" })
+
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "[W]rite buffer" })

@@ -1,14 +1,20 @@
 -- Relative line numbers
 vim.opt.relativenumber = true
 
+vim.opt.winborder = "rounded"
+
 -- Enable mouse
 vim.opt.mouse = "a"
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
+-- Set a default shift and tabwidth of 2
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+
+-- Default convert to spaces
+vim.opt.expandtab = true
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
