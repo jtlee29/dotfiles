@@ -8,6 +8,7 @@ vim.g.have_nerd_font = true
 require("opts")
 require("binds")
 require("auto-cmds")
+require("lsp")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
