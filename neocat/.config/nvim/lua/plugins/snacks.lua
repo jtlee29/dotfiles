@@ -1,81 +1,38 @@
----class
-local layout = {
-  box = "horizontal",
-  backdrop = false,
-  width = 0.8,
-  height = 0.9,
-  border = "none",
-  {
-    box = "vertical",
-    { win = "list", title = " Results ", title_pos = "center", border = "single" },
-    { win = "input", height = 1, border = "single", title = "{title} {live} {flags}", title_pos = "center" },
-  },
-  {
-    win = "preview",
-    title = "{preview:Preview}",
-    width = 0.45,
-    border = "single",
-    title_pos = "center",
-  },
-}
-
 local headers = {
-  diagonals = [[
-    /|    / /                   //   ) )                
-   //|   / /  ___      ___     //         ___    __  ___
-  // |  / / //___) ) //   ) ) //        //   ) )  / /   
- //  | / / //       //   / / //        //   / /  / /    
-//   |/ / ((____   ((___/ / ((____/ / ((___( (  / /     ]],
-  shadow = [[
-███╗   ██╗███████╗ ██████╗  ██████╗ █████╗ ████████╗
-████╗  ██║██╔════╝██╔═══██╗██╔════╝██╔══██╗╚══██╔══╝
-██╔██╗ ██║█████╗  ██║   ██║██║     ███████║   ██║   
-██║╚██╗██║██╔══╝  ██║   ██║██║     ██╔══██║   ██║   
-██║ ╚████║███████╗╚██████╔╝╚██████╗██║  ██║   ██║   
-╚═╝  ╚═══╝╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝   ╚═╝   ]],
   soft = [[
 ,--.  ,--.               ,-----.          ,--.  
 |  ,'.|  | ,---.  ,---. '  .--./ ,--,--.,-'  '-.
 |  |' '  || .-. :| .-. ||  |    ' ,-.  |'-.  .-'
 |  | `   |\   --.' '-' ''  '--'\\ '-'  |  |  |  
-`--'  `--' `----' `---'  `-----' `--`--'  `--'  ]],
+`--'  `--' `----' `---'  `-----' `--`--'  `--'1.11]],
 }
 
 return {
   "folke/snacks.nvim",
-  ---@module "snacks"
-
   priority = 1000,
   lazy = false,
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
 
+  ---@module "snacks"
   ---@type snacks.Config
   opts = {
-    lazygit = {},
-    image = {},
-
-    indent = {
-      indent = {
-        enabled = true,
-        only_current = true,
-      },
-    },
-
-    input = {
+    dashboard = {
       enabled = true,
-      win = {
-        border = "single",
-        relative = "cursor",
-        row = -3,
-        col = 0,
+      preset = {
+        header = headers.soft,
+      },
+      sections = {
+        { section = "header" },
+        { section = "keys", gap = 1, padding = 1 },
+        { section = "startup" },
       },
     },
-
-    -- animate = { duration = 20, easing = "linear", fps = 60 }, -- not working??
 
     picker = {
       enabled = true,
+      ui_select = true,
       layout = {
-        layout = layout,
+        -- layout = layout,
         cycle = false,
         reverse = true,
       },
@@ -99,21 +56,7 @@ return {
         },
       },
     },
-
-    dashboard = {
-      enabled = true,
-      preset = {
-        header = headers.soft,
-      },
-      sections = {
-        { section = "header" },
-        { section = "keys", gap = 1, padding = 1 },
-        { section = "startup" },
-      },
-    },
   },
-
-  config = function(_, opts) require("snacks").setup(opts) end,
 
   keys = {
     --[[ ---------- Search ---------- ]]
@@ -141,4 +84,6 @@ return {
 
     -- For LSP based pickers, see nvim-lsp.lua
   },
+
+  config = function(_, opts) require("snacks").setup(opts) end,
 }
