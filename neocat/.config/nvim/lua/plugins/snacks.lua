@@ -30,6 +30,15 @@ return {
 
     notifier = { enabled = true },
 
+    input = {
+      enabled = true,
+      win = {
+        relative = "cursor",
+        row = -3,
+        col = 0,
+      },
+    },
+
     lazygit = { enabled = true },
 
     picker = {
