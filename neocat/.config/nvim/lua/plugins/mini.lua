@@ -1,5 +1,4 @@
 return {
-  { "echasnovski/mini.ai", version = "*", opts = { n_lines = 500 } },
-  { "echasnovski/mini.comment", version = "*", opts = {} },
-  { "echasnovski/mini.files", version = "*", opts = {} },
+  { "echasnovski/mini.ai", version = false, opts = { n_lines = 500 } },
+  { "nvim-mini/mini.icons", version = false },
 }
