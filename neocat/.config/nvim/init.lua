@@ -7,7 +7,7 @@ vim.g.have_nerd_font = true
 
 require("opts")
 require("binds")
-require("auto-cmds")
+require("cmds")
 require("lsp")
 
 -- Bootstrap lazy.nvim
