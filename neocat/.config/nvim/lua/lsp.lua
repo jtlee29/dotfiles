@@ -43,18 +43,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --  Most Language Servers support renaming across files, etc.
     map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
-    -- Snacks LSP related actions
-    local snacks = require("snacks")
-
-    map("<leader>ss", snacks.picker.lsp_symbols, "[s]earch document [s]ymbols")
-
-    map("<leader>sS", snacks.picker.lsp_workspace_symbols, "[s]earch workspace [S]ymbols")
-    map("<leader>sd", snacks.picker.diagnostics, "[s]earch [d]iagnostics")
-    map("gd", snacks.picker.lsp_definitions, "[g]oto [d]efinition")
-    map("gD", snacks.picker.lsp_declarations, "[g]oto [D]eclaration")
-    map("gr", snacks.picker.lsp_references, "[g]oto [r]eferences")
-    map("gi", snacks.picker.lsp_implementations, "[g]oto [i]mplementation")
-
     -- -- Highlight references of the word after cursor rests there for a while.
     -- --    See `:help CursorHold` for information about when this is executed
     local client = vim.lsp.get_client_by_id(event.data.client_id)
