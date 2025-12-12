@@ -1,16 +1,14 @@
---[[ Justin's Neovim Config ]]
-
---  Set <space> as leader key
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 vim.g.have_nerd_font = true
 
--- Setup base files
-require("vim-opts")
+require("opts")
 require("binds")
-require("auto-cmds")
+require("cmds")
+require("lsp")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -37,8 +35,11 @@ require("lazy").setup({
     { import = "themes" },
   },
 
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true, notify = false },
 })
 
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("vague")

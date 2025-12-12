@@ -1,63 +1,57 @@
---
--- This configuration file contains all the vim options
---
--- NOTE:
--- See `:help vim.o`
--- For more options see `:help option-list`
---
+-- Relative line numbers
+vim.opt.relativenumber = true
 
--- vim.o.tabstop = 4
---
--- Enable relative line numbers
-vim.o.relativenumber = true
+vim.opt.winborder = "rounded"
 
--- Enable mouse mode, can be useful for resizing splits.
-vim.o.mouse = 'a'
+-- Enable mouse
+vim.opt.mouse = "a"
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
+
+-- Set a default shift and tabwidth of 2
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+
+-- Default convert to spaces
+vim.opt.expandtab = true
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+vim.schedule(function() vim.o.clipboard = "unnamedplus" end)
 
--- Enable break indent
-vim.o.breakindent = true
+-- No text wrapping
+vim.opt.wrap = false
 
 -- Save undo history
-vim.o.undofile = true
+vim.opt.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.o.timeoutlen = 300
+vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
-vim.o.splitright = true
-vim.o.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.o.list = true
-vim.o.listchars = 'tab:» ,trail:·,nbsp:␣'
--- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
