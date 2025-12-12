@@ -12,8 +12,18 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 -- Diagnostic Keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror message" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+vim.keymap.set(
+  "n",
+  "[d",
+  function() vim.diagnostic.jump({ count = -1, float = true }) end,
+  { desc = "Go to previous [D]iagnostic message" }
+)
+vim.keymap.set(
+  "n",
+  "]d",
+  function() vim.diagnostic.jump({ count = 1, float = true }) end,
+  { desc = "Go to next [D]iagnostic message" }
+)
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
