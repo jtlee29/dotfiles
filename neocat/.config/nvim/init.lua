@@ -32,6 +32,7 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "plugins" },
+    { import = "themes" },
   },
 
   -- Configure any other settings here. See the documentation for more details.
@@ -40,3 +41,5 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
+vim.cmd.colorscheme("vague")
