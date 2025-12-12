@@ -1,5 +1,6 @@
 return {
   "folke/todo-comments.nvim",
-  event = "VimEnter",
-  opts = { signs = false },
+  -- Only using it for highlight, remove plenary dep for leaner config
+  -- dependencies = { "nvim-lua/plenary.nvim" },
+  opts = {},
 }
