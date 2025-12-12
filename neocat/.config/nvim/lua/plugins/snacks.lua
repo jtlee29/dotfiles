@@ -28,6 +28,10 @@ return {
       },
     },
 
+    notifier = { enabled = true },
+
+    lazygit = { enabled = true },
+
     picker = {
       enabled = true,
       ui_select = true,
