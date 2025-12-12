@@ -1,3 +1,9 @@
+-- Disable global default lsp commands to use snacks ones instead
+local disable = { "grn", "gra", "grr", "gri", "gO" }
+for _, value in pairs(disable) do
+  vim.keymap.del("n", value)
+end
+
 vim.lsp.enable({ "lua_ls", "vtsls" })
 
 vim.diagnostic.config({
@@ -40,11 +46,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Snacks LSP related actions
     local snacks = require("snacks")
 
-    -- Disable global default lsp commands to use snacks ones instead
-    local disable = { "grn", "gra", "grr", "gri", "gO" }
-    for _, value in pairs(disable) do
-      vim.keymap.del("n", value)
-    end
     map("<leader>ss", snacks.picker.lsp_symbols, "[s]earch document [s]ymbols")
 
     map("<leader>sS", snacks.picker.lsp_workspace_symbols, "[s]earch workspace [S]ymbols")
