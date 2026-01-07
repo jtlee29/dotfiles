@@ -1,6 +1,8 @@
 -- Relative line numbers
 vim.opt.relativenumber = true
 
+vim.opt.swapfile = false
+
 vim.opt.winborder = "rounded"
 
 -- Enable mouse

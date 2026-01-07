@@ -4,7 +4,7 @@ for _, value in pairs(disable) do
   vim.keymap.del("n", value)
 end
 
-vim.lsp.enable({ "lua_ls", "vtsls", "eslint" })
+vim.lsp.enable({ "lua_ls", "vtsls", "eslint", "terraformls" })
 
 vim.diagnostic.config({
   -- virtual_lines = true,
