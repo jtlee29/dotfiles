@@ -81,6 +81,11 @@ return {
 
     { "<leader>sf", function() Snacks.picker.files() end, desc = "[s]earch [f]iles" },
     { "<leader>s.", function() Snacks.picker.recent() end, desc = "[s]earch recent files (. for repeat)" },
+    {
+      "<leader>st",
+      function() Snacks.picker.files({ ft = ".test.ts", title = "Test Files" }) end,
+      desc = "[s]earch [t]ests",
+    },
     { "<leader>sg", function() Snacks.picker.grep() end, desc = "[s]earch with [g]rep" },
     { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "[s]earch current [w]ord", mode = { "n", "x" } },
     { "<leader>sr", function() Snacks.picker.resume() end, desc = "[s]earch [r]esume" },
