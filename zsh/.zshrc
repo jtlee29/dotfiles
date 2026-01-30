@@ -37,6 +37,7 @@ alias lg='lazygit'
 source /usr/share/nvm/init-nvm.sh
 source ~/.npm-token
 source ~/.zshrc-tetra
+source ~/dotfiles/zsh/aws-profile.zsh
 
 source <(fzf --zsh)     # verify this works for arch
 HISTFILE=~/.zsh_history
