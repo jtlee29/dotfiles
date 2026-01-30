@@ -7,10 +7,16 @@ return {
     require("vague").setup({
       -- transparent = true,
       -- optional configuration here
-      --
       colors = {
         bg = "#1d2021",
       },
+
+      -- Override colors
+      on_highlights = function(hl, c)
+        hl.EndOfBuffer.fg = c.bg
+
+        hl.WinBar = { fg = c.fg, bg = c.bg }
+      end,
     })
     -- vim.cmd("colorscheme vague")
   end,
