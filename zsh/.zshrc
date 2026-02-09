@@ -1,45 +1,60 @@
 # ~/.zshrc
-#
-# ---- Requirements ----
-# - neovim
-# - eza
-# - zoxide
-# - fzf
-# - nvm
-# - yazi
-# - lazygit
-# - tmuxifier
 
+# ---------- Env Vars ----------
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
-export GIT_EDITOR="nvim"
 
-# Requires tmuxifier
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
-export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
-alias tx='tmuxifier'
+# Ensure brew is on PATH
+eval "$(brew shellenv)"
+export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
-# Requires smart tmux session manager
-# ~/.tmux/plugins
-export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-# ~/.config/tmux/plugins
-export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+# ---------- Sources ----------
+# Resolve real dir of this file (follows stow symlink)
+source "${0:A:h}/aws-profile.zsh"
 
-# Requires eza package
+# ---------- Aliases ----------
+alias reload='source ~/.zshrc'
+alias edit-zsh='nvim ~/.zshrc'
+alias cp="cp -i"
+alias mv="mv -i"
+
+alias lg='lazygit'
 alias ls='eza'
 alias ll='eza -lah'
 alias tree='eza --tree'
 
-# Requires lazygit package
-alias lg='lazygit'
+# ---------- ZINIT ----------
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname "$ZINIT_HOME")"
+[ ! -d "$ZINIT_HOME/.git" ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
-source /usr/share/nvm/init-nvm.sh
-source ~/.npm-token
-source ~/.zshrc-tetra
-source ~/dotfiles/zsh/aws-profile.zsh
+# Source/load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 
-source <(fzf --zsh)     # verify this works for arch
+# ZSH plugins
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+autoload -U compinit && compinit
+zinit light Aloxaf/fzf-tab # FZF for autocompletions
+zinit light zsh-users/zsh-syntax-highlighting
+
+# ---------- Completion Styling ----------
+
+# Case and scores insensitive autocompletions
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 
+# Add filename colors autocompletions
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# Force zsh not to show completion menu, use fzf instead
+zstyle ':completion:*' menu no 
+
+# zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+zstyle ':fzf-tab:*' fzf-flags --bind=tab:accept
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # Preview dirs for cd autocompletion
+
+# ---------- History ----------
+source <(fzf --zsh)
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -47,21 +62,13 @@ setopt appendhistory
 setopt share_history
 setopt hist_expire_dups_first
 
+bindkey '^y' autosuggest-accept
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-alias "fnvim"="fzf --height 25% --layout reverse --border | xargs nvim"
-
+# ---------- Init ----------
 eval "$(zoxide init --cmd cd zsh)"
-
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
 eval "$(starship init zsh)"
-pfetch
+fastfetch
