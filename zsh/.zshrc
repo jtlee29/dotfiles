@@ -9,6 +9,9 @@ eval "$(brew shellenv)"
 export PATH="$PATH:$HOME/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+
 # ---------- Sources ----------
 # Resolve real dir of this file (follows stow symlink)
 source "${0:A:h}/aws-profile.zsh"
