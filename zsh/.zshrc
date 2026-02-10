@@ -35,9 +35,9 @@ source "${ZINIT_HOME}/zinit.zsh"
 # ZSH plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-autoload -U compinit && compinit
 zinit light Aloxaf/fzf-tab # FZF for autocompletions
 zinit light zsh-users/zsh-syntax-highlighting
+autoload -U compinit && compinit
 
 # ---------- Completion Styling ----------
 
