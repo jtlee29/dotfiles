@@ -13,8 +13,8 @@ export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 
 # ---------- Sources ----------
-# Resolve real dir of this file (follows stow symlink)
-source "${0:A:h}/aws-profile.zsh"
+source ~/dotfiles/zsh/aws-profile.zsh
+[[ -f ~/.npm-token ]] && source ~/.npm-token
 
 # ---------- Aliases ----------
 alias reload='source ~/.zshrc'
