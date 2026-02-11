@@ -13,7 +13,7 @@ export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 
 # ---------- Sources ----------
-source ~/dotfiles/zsh/aws-profile.zsh
+source ~/aws-profile.zsh
 [[ -f ~/.npm-token ]] && source ~/.npm-token
 
 # ---------- Aliases ----------
