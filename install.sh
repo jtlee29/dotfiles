@@ -5,7 +5,7 @@ set -e
 if ! command -v brew &>/dev/null; then
   echo "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$(brew shellenv)"
+  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 fi
 
 # ---------- Packages ----------
@@ -14,12 +14,17 @@ packages=(
   eza
   zoxide
   fastfetch
-  # starship
+  starship
   fzf
   sesh
   tmux
   n
   lazygit
+  stow
+  ripgrep
+  vtsls
+  stylua
+  lua-language-server
 )
 
 echo "Installing packages..."
@@ -48,5 +53,13 @@ for cask in "${casks[@]}"; do
     brew install --cask "$cask"
   fi
 done
+
+# ---------- TPM (Tmux Plugin Manager) ----------
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  echo "Installing TPM..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+  echo "TPM already installed"
+fi
 
 echo "Done!"
