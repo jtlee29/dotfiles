@@ -3,12 +3,38 @@
   "logo": {
     "type": "small"
   },
+  "display": {
+    "key": {
+      "width": 11
+    },
+    "bar": {
+      "char": {
+        "elapsed": "=",
+        "total": "-"
+      },
+      "width": 13
+    },
+    "percent": {
+      "type": 2
+    }
+  },
   "modules": [
-    "os",
-    "host",
-    "kernel",
-    "uptime",
-    "packages",
-    "memory"
+    "title",
+    "separator",
+    "memory",
+    "swap",
+    {
+      "type": "disk",
+      "folders": "/"
+    },
+    {
+      "type": "battery",
+      "key": "Battery"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 10,
+      "symbol": "circle"
+    }
   ]
 }
