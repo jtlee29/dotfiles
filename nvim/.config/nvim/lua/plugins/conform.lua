@@ -39,6 +39,12 @@ return {
       html = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
       toml = { "taplo", stop_after_first = true },
+      terraform = { "terraform_fmt", stop_after_first = true },
+      tf = { "terraform_fmt", stop_after_first = true },
+      hcl = { "terraform_fmt", stop_after_first = true },
+      ["terraform-vars"] = { "terraform_fmt" },
+
+      go = { "gofmt", stop_after_first = true },
     },
   },
 }
