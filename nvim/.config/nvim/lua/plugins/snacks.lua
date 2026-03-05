@@ -1,9 +1,9 @@
 local headers = {
   soft = [[
-,--.  ,--.               ,-----.          ,--.  
-|  ,'.|  | ,---.  ,---. '  .--./ ,--,--.,-'  '-.
-|  |' '  || .-. :| .-. ||  |    ' ,-.  |'-.  .-'
-|  | `   |\   --.' '-' ''  '--'\\ '-'  |  |  |  
+,--.  ,--.               ,-----.          ,--.    
+|  ,'.|  | ,---.  ,---. '  .--./ ,--,--.,-'  '-.  
+|  |' '  || .-. :| .-. ||  |    ' ,-.  |'-.  .-'  
+|  | `   |\   --.' '-' ''  '--'\\ '-'  |  |  |    
 `--'  `--' `----' `---'  `-----' `--`--'  `--'1.11]],
 }
 
@@ -52,6 +52,9 @@ return {
       matcher = {
         frecency = true,
       },
+      toggles = {
+        hidden = "h",
+      },
       win = {
         input = {
           keys = {
@@ -79,7 +82,7 @@ return {
       desc = "search open buffers",
     },
 
-    { "<leader>sf", function() Snacks.picker.files() end, desc = "[s]earch [f]iles" },
+    { "<leader>sf", function() Snacks.picker.files({ hidden = true }) end, desc = "[s]earch [f]iles" },
     { "<leader>s.", function() Snacks.picker.recent() end, desc = "[s]earch recent files (. for repeat)" },
     {
       "<leader>st",
