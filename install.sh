@@ -22,6 +22,8 @@ packages=(
   lazygit
   stow
   ripgrep
+  go
+  gopls
   vtsls
   stylua
   lua-language-server
