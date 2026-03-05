@@ -9,6 +9,10 @@ eval "$(brew shellenv)"
 export PATH="$PATH:$HOME/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
+# Ensure GO is in PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 
