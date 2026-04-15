@@ -31,13 +31,14 @@ return {
       -- python = { "isort", "black" },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
+      -- NOTE: Prettierd is having timeout issues. Switch back eventually
       javascript = { "prettier", stop_after_first = true },
-      typescript = { "prettierd", "prettier", stop_after_first = true },
-      typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-      css = { "prettierd", "prettier", stop_after_first = true },
-      json = { "prettierd", "prettier", stop_after_first = true },
-      html = { "prettierd", "prettier", stop_after_first = true },
-      yaml = { "prettierd", "prettier", stop_after_first = true },
+      typescript = { "prettier", "prettierd", stop_after_first = true },
+      typescriptreact = { "prettier", "prettierd", stop_after_first = true },
+      css = { "prettier", "prettierd", stop_after_first = true },
+      json = { "prettier", "prettierd", stop_after_first = true },
+      html = { "prettier", "prettierd", stop_after_first = true },
+      yaml = { "prettier", "prettierd", stop_after_first = true },
       toml = { "taplo", stop_after_first = true },
       terraform = { "terraform_fmt", stop_after_first = true },
       tf = { "terraform_fmt", stop_after_first = true },
@@ -45,6 +46,7 @@ return {
       ["terraform-vars"] = { "terraform_fmt" },
 
       go = { "gofmt", stop_after_first = true },
+      -- proto = { "clang_format", stop_after_first = true },
     },
   },
 }
