@@ -42,4 +42,4 @@ require("lazy").setup({
   checker = { enabled = true, notify = false },
 })
 
-vim.cmd.colorscheme("vague")
+vim.cmd.colorscheme("catppuccin-mocha")

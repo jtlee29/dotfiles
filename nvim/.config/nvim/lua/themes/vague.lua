@@ -13,7 +13,7 @@ return {
 
       -- Override colors
       on_highlights = function(hl, c)
-        hl.EndOfBuffer.fg = c.bg
+        hl.EndOfBuffer = { fg = c.bg, bg = c.bg }
 
         hl.WinBar = { fg = c.fg, bg = c.bg }
       end,
