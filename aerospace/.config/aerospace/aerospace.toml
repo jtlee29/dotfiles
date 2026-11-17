@@ -12,7 +12,8 @@ after-login-command = []
 after-startup-command = [
   # Run this cmd in terminal to remove mac closing animations
   # defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
-  'exec-and-forget borders active_color=0xffC9B8E5 inactive_color=0xff494d64 width=8.0',
+  # JankyBorders runs as a brew service: see ~/.config/borders/bordersrc
+  # Restart with: brew services restart borders
 ]
 
 # Start AeroSpace at login
