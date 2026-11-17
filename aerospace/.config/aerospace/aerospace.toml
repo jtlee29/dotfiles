@@ -47,6 +47,18 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
 
+# Monitor assignment
+[workspace-to-monitor-force-assignment]
+    1 = 'main'                       # Monitor sequence number from left to right. 1-based indexing
+    2 = 'main'                       # Main monitor
+    3 = 'main'                       # Main monitor
+    4 = 'main'                       # Main monitor
+    5 = 'main'                       # Main monitor
+    6 = 'main'                       # Main monitor
+    7 = 'main'                       # Main monitor
+    8 = 'main'                       # Main monitor
+    9 = 'secondary'                  # Non-main monitor in case when there are only two monitors
+
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
